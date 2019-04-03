@@ -251,3 +251,19 @@ values
 (12,'blessed'),
 (15,'tbt'),
 (3,'hashtagtesting')
+
+--interactions - dms
+
+insert into interaction.dm
+(sender,recipient,timestamp,postid,messagetext)
+values
+('kate','rread','2017-03-20 07:07:37.56',4,'thank you for the cake!!'),
+('ifrah','kate','2017-03-20 11:07:37.56',null,'happy birthday!!!!have the best day!'),
+('kate','ifrah','2017-03-20 12:07:37.56',null,'thank youuu!!!'),
+('kate','ifrah','2017-03-20 12:09:37.56',9,'let''s go here next week!'),
+('anja-vincent','kate','2017-03-20 17:07:37.56',null,'happy birthday kate! that cake looks SO good'),
+('kate','anja-vincent','2017-03-20 17:12:37.56',null,'it was SO SO GOOD!!'),
+('kate','anja-vincent','2017-03-20 17:12:37.57',null,'when are you back?'),
+('verity_c','cara_123','2017-03-20 17:12:37.58',4,'let''s try this on friday!!'),
+('cara_123','verity_c','2017-03-20 17:12:37.59',null,':O :O'),
+('cara_123','verity_c','2017-03-20 17:12:37.99',9,'also this')
