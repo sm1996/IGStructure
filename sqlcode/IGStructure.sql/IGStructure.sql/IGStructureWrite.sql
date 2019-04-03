@@ -235,3 +235,19 @@ values
 ('shamama',1,'2018-11-27 05:57:29.111',null),
 ('cara_123',2,'2019-01-16 13:33:27.111',null),
 ('anja-vincent',1,'2019-03-24 06:05:41.111','barbados')
+
+--post hashtags
+
+insert into post.hashtag
+(postid,hashtag)
+values
+(4,'letthemeatcake'),
+(4,'allthecake'),
+(4,'cakeislife'),
+(5,'timeouttastemakers'),
+(5,'photographersoflondon'),
+(7,'londonliving'),
+(9,'lavieenrose'),
+(12,'blessed'),
+(15,'tbt'),
+(3,'hashtagtesting')
