@@ -197,3 +197,22 @@ values
 ('rread','reyaread@gmail.com','Rreadpw%',0,null),
 ('anja-vincent','a_vincent@gmail.com','AV1994*',0,null),
 ('cara_123','caraweaver123@googlemail.com','CW45&',0,null)
+go
+
+--user relations
+
+insert into userinfo.userrelations
+(subjectuser,objectuser,follow,block)
+values
+('shamama','kate',1,0),
+('shamama','ifrah',1,0),
+('shamama','cara_123',1,0),
+('shamama','rread',0,1),
+('shamama','ahodge1995',1,0),
+('shamama','anja-vincent',1,0),
+('anja-vincent','kate',1,0),
+('anja-vincent','karl.aguilar',1,0),
+('anja-vincent','rread',1,0),
+('anja-vincent','cara_123',0,1),
+('ifrah','aarronhere',1,0)
+go
