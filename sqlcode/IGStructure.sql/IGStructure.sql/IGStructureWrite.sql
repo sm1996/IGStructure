@@ -1,3 +1,11 @@
+--moving to different database to deleteinstagram if it exists
+use master
+go
+
+if exists (select * from sys.databases where name='instagram') 
+drop database instagram
+go
+
 create database instagram
 go
 
@@ -5,8 +13,9 @@ use instagram
 go
 
 --checking if objects already exist and creating blank state
+-- commented out because dropping the database drops all tables and schemas as well
 
-if object_id('interaction.dm') is not null
+/*if object_id('interaction.dm') is not null
 	drop table interaction.dm
 go
 
@@ -49,6 +58,7 @@ go
 if schema_id('userinfo') is not null
 	drop schema userinfo
 go
+*/
 
 --creating schemas and tables
 
@@ -236,88 +246,94 @@ values
 ('shamama',1,'2018-11-27 05:57:29.111',null),
 ('cara_123',2,'2019-01-16 13:33:27.111',null),
 ('anja-vincent',1,'2019-03-24 06:05:41.111','barbados')
+go
 
-select * from post.info
 --post hashtags
 
 insert into post.hashtag
 (postid,hashtag)
 values
-(4,'letthemeatcake'),
-(4,'allthecake'),
-(4,'cakeislife'),
-(5,'timeouttastemakers'),
-(5,'photographersoflondon'),
-(7,'londonliving'),
-(9,'lavieenrose'),
-(12,'blessed'),
-(15,'tbt'),
-(3,'hashtagtesting')
+(2,'letthemeatcake'),
+(2,'allthecake'),
+(2,'cakeislife'),
+(3,'timeouttastemakers'),
+(3,'photographersoflondon'),
+(3,'londonliving'),
+(7,'lavieenrose'),
+(10,'blessed'),
+(13,'tbt'),
+(2,'hashtagtesting')
+go
 
 --interactions - dms
 
 insert into interaction.dm
 (sender,recipient,timestamp,postid,messagetext)
 values
-('kate','rread','2017-03-20 07:07:37.56',4,'thank you for the cake!!'),
+('kate','rread','2017-03-20 07:07:37.56',2,'thank you for the cake!!'),
 ('ifrah','kate','2017-03-20 11:07:37.56',null,'happy birthday!!!!have the best day!'),
 ('kate','ifrah','2017-03-20 12:07:37.56',null,'thank youuu!!!'),
-('kate','ifrah','2017-03-20 12:09:37.56',9,'let''s go here next week!'),
+('kate','ifrah','2017-03-20 12:09:37.56',7,'let''s go here next week!'),
 ('anja-vincent','kate','2017-03-20 17:07:37.56',null,'happy birthday kate! that cake looks SO good'),
 ('kate','anja-vincent','2017-03-20 17:12:37.56',null,'it was SO SO GOOD!!'),
 ('kate','anja-vincent','2017-03-20 17:12:37.57',null,'when are you back?'),
-('verity_c','cara_123','2017-03-20 17:12:37.58',4,'let''s try this on friday!!'),
+('verity_c','cara_123','2017-03-20 17:12:37.58',2,'let''s try this on friday!!'),
 ('cara_123','verity_c','2017-03-20 17:12:37.59',null,':O :O'),
-('cara_123','verity_c','2017-03-20 17:12:37.99',9,'also this')
+('cara_123','verity_c','2017-03-20 17:12:37.99',7,'also this')
+go
 
 --interactions - likes
 
 insert into interaction.postlike
 (liker, postid, timestamp)
 values
-('shamama',14,'2019-01-28 21:31:07.111'),
-('kate',14,'2019-02-20 07:07:37.111'),
-('ahodge1995',14,'2019-03-01 06:35:08.111'),
-('karl.aguilar',14,'2019-03-30 23:32:16.111'),
-('aarronhere',14,'2019-04-01 10:25:01.111'),
-('rread',14,'2019-04-02 16:59:02.111'),
-('anja-vincent',14,'2019-04-05 07:58:18.111'),
-('cara_123',14,'2019-05-17 22:00:32.111'),
-('verity_c',14,'2019-06-02 22:57:39.111'),
-('shamama',9,'2019-06-28 21:31:07.111'),
-('kate',9,'2019-07-20 07:07:37.111')
+('shamama',12,'2019-01-28 21:31:07.111'),
+('kate',12,'2019-02-20 07:07:37.111'),
+('ahodge1995',12,'2019-03-01 06:35:08.111'),
+('karl.aguilar',12,'2019-03-30 23:32:16.111'),
+('aarronhere',12,'2019-04-01 10:25:01.111'),
+('rread',12,'2019-04-02 16:59:02.111'),
+('anja-vincent',12,'2019-04-05 07:58:18.111'),
+('cara_123',12,'2019-05-17 22:00:32.111'),
+('verity_c',12,'2019-06-02 22:57:39.111'),
+('shamama',7,'2019-06-28 21:31:07.111'),
+('kate',7,'2019-07-20 07:07:37.111')
+go
 
 --interactions - comments
 
 insert into interaction.postcomment
 (commenter,postid,timestamp,comment)
 values
-('shamama',15,'2019-03-24 06:05:41.111','wow!!'),
-('kate',15,'2019-03-24 07:05:41.111','!!!!!!'),
-('ahodge1995',15,'2019-03-24 08:05:41.111',':O'),
-('karl.aguilar',15,'2019-03-24 09:05:41.111','great photo'),
-('aarronhere',15,'2019-03-24 10:05:41.111','phwoar'),
-('rread',15,'2019-03-24 11:05:41.111','what a view'),
-('anja-vincent',15,'2019-03-24 12:05:41.111','(Y)'),
-('cara_123',15,'2019-03-24 13:05:41.111','heart eyes'),
-('verity_c',15,'2019-03-24 14:05:41.111','wowowow'),
-('ifrah',15,'2019-03-24 15:05:41.111',':OOOOO'),
-('shamama',15,'2019-03-24 16:05:41.111','dang'),
-('cara_123',15,'2019-03-24 17:05:41.111','woahh')
+('shamama',13,'2019-03-24 06:05:41.111','wow!!'),
+('kate',13,'2019-03-24 07:05:41.111','!!!!!!'),
+('ahodge1995',13,'2019-03-24 08:05:41.111',':O'),
+('karl.aguilar',13,'2019-03-24 09:05:41.111','great photo'),
+('aarronhere',13,'2019-03-24 10:05:41.111','phwoar'),
+('rread',13,'2019-03-24 11:05:41.111','what a view'),
+('anja-vincent',13,'2019-03-24 12:05:41.111','(Y)'),
+('cara_123',13,'2019-03-24 13:05:41.111','heart eyes'),
+('verity_c',13,'2019-03-24 14:05:41.111','wowowow'),
+('ifrah',13,'2019-03-24 15:05:41.111',':OOOOO'),
+('shamama',13,'2019-03-24 16:05:41.111','dang'),
+('cara_123',13,'2019-03-24 17:05:41.111','woahh')
+go
+
+--interactions - post views
 
 insert into interaction.postview
 (viewer,postid,timestamp,endviewtimestamp)
 values
-('shamama',15,'2019-03-24 06:05:41.111','2019-03-24 06:07:41.111'),
-('kate',15,'2019-03-24 07:05:41.111','2019-03-24 07:06:41.111'),
-('ahodge1995',15,'2019-03-24 08:05:41.111','2019-03-24 08:05:55.111'),
-('karl.aguilar',15,'2019-03-24 09:05:41.111','2019-03-24 09:08:41.111'),
-('aarronhere',15,'2019-03-24 10:05:41.111','2019-03-24 10:06:15.111'),
-('rread',15,'2019-03-24 11:05:41.111','2019-03-24 11:06:41.111'),
-('anja-vincent',15,'2019-03-24 12:05:41.111','2019-03-24 12:08:41.111'),
-('cara_123',15,'2019-03-24 13:05:41.111','2019-03-24 13:05:59.111'),
-('verity_c',15,'2019-03-24 14:05:41.111','2019-03-24 14:06:41.111'),
-('ifrah',15,'2019-03-24 15:05:41.111','2019-03-24 15:05:49.111'),
-('shamama',15,'2019-03-24 16:05:41.111','2019-03-24 16:07:41.111'),
-('cara_123',15,'2019-03-24 17:05:41.111','2019-03-24 17:05:51.111')
-
+('shamama',13,'2019-03-24 06:05:41.111','2019-03-24 06:07:41.111'),
+('kate',13,'2019-03-24 07:05:41.111','2019-03-24 07:06:41.111'),
+('ahodge1995',13,'2019-03-24 08:05:41.111','2019-03-24 08:05:55.111'),
+('karl.aguilar',13,'2019-03-24 09:05:41.111','2019-03-24 09:08:41.111'),
+('aarronhere',13,'2019-03-24 10:05:41.111','2019-03-24 10:06:15.111'),
+('rread',13,'2019-03-24 11:05:41.111','2019-03-24 11:06:41.111'),
+('anja-vincent',13,'2019-03-24 12:05:41.111','2019-03-24 12:08:41.111'),
+('cara_123',13,'2019-03-24 13:05:41.111','2019-03-24 13:05:59.111'),
+('verity_c',13,'2019-03-24 14:05:41.111','2019-03-24 14:06:41.111'),
+('ifrah',13,'2019-03-24 15:05:41.111','2019-03-24 15:05:49.111'),
+('shamama',13,'2019-03-24 16:05:41.111','2019-03-24 16:07:41.111'),
+('cara_123',13,'2019-03-24 17:05:41.111','2019-03-24 17:05:51.111')
+go
