@@ -4,6 +4,52 @@ go
 use instagram
 go
 
+--checking if objects already exist and creating blank state
+
+if object_id('interaction.dm') is not null
+	drop table interaction.dm
+go
+
+if object_id('interaction.postview') is not null
+	drop table interaction.postview
+go
+
+if object_id('interaction.postlike') is not null
+	drop table interaction.postlike
+go
+
+if object_id('interaction.postcomment') is not null
+	drop table interaction.postcomment
+go
+
+if object_id('post.hashtag') is not null
+	drop table post.hashtag
+go
+
+if object_id('post.info') is not null
+	drop table post.info
+go
+
+if object_id('userinfo.userrelations') is not null
+	drop table userinfo.userrelations
+go
+
+if object_id('userinfo.userprofile') is not null
+	drop table userinfo.userprofile
+go
+
+if schema_id('post') is not null
+	drop schema post
+go
+
+if schema_id('interaction') is not null
+	drop schema interaction
+go
+
+if schema_id('userinfo') is not null
+	drop schema userinfo
+go
+
 --creating schemas and tables
 
 create schema userinfo
