@@ -216,3 +216,22 @@ values
 ('anja-vincent','cara_123',0,1),
 ('ifrah','aarronhere',1,0)
 go
+
+--posts
+
+insert into post.info
+(handle,posttype,timestamp,caption)
+values
+('shamama',1,'2017-02-28 21:31:07.111',null),
+('kate',3,'2017-03-20 07:07:37.111','Cake'),
+('ahodge1995',2,'2017-04-01 06:35:08.111','The shard!!'),
+('karl.aguilar',2,'2017-06-30 23:32:16.111',null),
+('aarronhere',1,'2017-08-28 10:25:01.111','At the Tate'),
+('rread',3,'2017-11-01 16:59:02.111',null),
+('anja-vincent',1,'2018-01-05 07:58:18.111','sketch'),
+('cara_123',3,'2018-05-17 22:00:32.111',null),
+('verity_c',2,'2018-06-02 22:57:39.111',null),
+('ifrah',1,'2018-07-29 23:18:42.111',':)'),
+('shamama',1,'2018-11-27 05:57:29.111',null),
+('cara_123',2,'2019-01-16 13:33:27.111',null),
+('anja-vincent',1,'2019-03-24 06:05:41.111','barbados')
