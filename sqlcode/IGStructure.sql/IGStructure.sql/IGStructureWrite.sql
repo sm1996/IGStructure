@@ -89,6 +89,16 @@ go
 
 --post tables
 
+/*
+
+Post types:
+
+1.Photo
+2.Video
+3.Carousel
+
+*/
+
 create table post.info
 (
 postid bigint identity primary key,
@@ -170,3 +180,20 @@ timestamp datetime not null
 )
 go
 
+--adding sample data
+
+--user profiles
+
+insert into userinfo.userprofile
+(handle, email, password, privacy, bio)
+values
+('shamama','smuhit@gmail.com','SM1234',1,null),
+('kate','katehudson@gmail.com','KH34',0,'kate'),
+('aarronhere','aarronw@googlemail.com','AWS4*',1,null),
+('ahodge1995','akaash@yahoomail.com','AJL1234',1,'akaash'),
+('ifrah','iwade@yandex.com','89IH974',1,null),
+('verity_c','v.cross@gmail.com','VBC30!',1,null),
+('karl.aguilar','karl.aguilar@hotmail.com','KA1974',1,null),
+('rread','reyaread@gmail.com','Rreadpw%',0,null),
+('anja-vincent','a_vincent@gmail.com','AV1994*',0,null),
+('cara_123','caraweaver123@googlemail.com','CW45&',0,null)
