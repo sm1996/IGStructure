@@ -176,6 +176,7 @@ commenter varchar(30) not null
 postid bigint not null
 	constraint fk_pc_postid foreign key(postid)
 	references post.info(postid),
+comment varchar(300) not null,
 timestamp datetime not null
 )
 go
@@ -236,6 +237,7 @@ values
 ('cara_123',2,'2019-01-16 13:33:27.111',null),
 ('anja-vincent',1,'2019-03-24 06:05:41.111','barbados')
 
+select * from post.info
 --post hashtags
 
 insert into post.hashtag
@@ -284,5 +286,24 @@ values
 ('verity_c',14,'2019-06-02 22:57:39.111'),
 ('shamama',9,'2019-06-28 21:31:07.111'),
 ('kate',9,'2019-07-20 07:07:37.111')
+
+--interactions - comments
+
+insert into interaction.postcomment
+(commenter,postid,timestamp,comment)
+values
+('shamama',15,'2019-03-24 06:05:41.111','wow!!'),
+('kate',15,'2019-03-24 07:05:41.111','!!!!!!'),
+('ahodge1995',15,'2019-03-24 08:05:41.111',':O'),
+('karl.aguilar',15,'2019-03-24 09:05:41.111','great photo'),
+('aarronhere',15,'2019-03-24 10:05:41.111','phwoar'),
+('rread',15,'2019-03-24 11:05:41.111','what a view'),
+('anja-vincent',15,'2019-03-24 12:05:41.111','(Y)'),
+('cara_123',15,'2019-03-24 13:05:41.111','heart eyes'),
+('verity_c',15,'2019-03-24 14:05:41.111','wowowow'),
+('ifrah',15,'2019-03-24 15:05:41.111',':OOOOO'),
+('shamama',15,'2019-03-24 16:05:41.111','dang'),
+('cara_123',15,'2019-03-24 17:05:41.111','woahh')
+
 
 
